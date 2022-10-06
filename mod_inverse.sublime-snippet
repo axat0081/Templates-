@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+ll gcd(ll a, ll b)
+{
+    if (a < b)
+        return gcd(b, a);
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+ll extgcd(ll a, ll b, ll &x, ll &y)
+{
+    if (b == 0){ x=1; y=0; return a; }
+    ll d=extgcd(b,a%b,y,x);
+    y-=a/b*x; return d;
+}
+ll modInv(ll a, ll p)
+{
+    if (gcd(a, p) != 1)
+        return -1;
+ 
+    ll x, y;
+    extgcd(a, p, x, y);
+ 
+    x %= p;
+    if (x < 0)
+        x += p;
+    return x;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>mod_inverse</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

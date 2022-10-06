@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+bool is_subsequence(string s,string t)
+{
+	int n=s.length(),m=t.length(); 
+	int j=0; 
+	rep(i,0,n-1)
+	{
+     if(s[i]==t[j]){ j++; }
+     if(j==m){ return true; }
+	}
+	return false;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>is_subsequence</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

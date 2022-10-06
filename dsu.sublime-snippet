@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+int find_par(int a)
+{
+	if(par[a]==a) return a; 
+	return par[a]=find_par(par[a]); 
+}
+void union_set(int a,int b)
+{
+	a=find_par(a); b=find_par(b); 
+	if(a==b) return; 
+	if(st[a]<st[b]) swap(a,b); 
+	par[b]=par[a]; st[a]+=st[b]; 
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>dsu</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,64 @@
+<snippet>
+	<content><![CDATA[
+constexpr int nax=1002,logMax=11;
+int st2[logMax][logMax][nax][nax]; 
+void compute(int n,int m)
+{
+    for(int i=2;i<=nax-1;i++) logn[i]=logn[i/2]+1; 
+    for(int i=0;i<=n-1;i++)
+    {
+        for(int j=0;j<=m-1;j++)
+            st2[0][0][i][j]=a[i][j]; 
+    }
+    for(int i=0;i<=n-1;i++)
+    {
+        for(int j=m-1;j>=0;j--)
+        {
+            for(int b=1;b<=logMax;b++)
+            {
+                if(j+(1<<(b-1))>m-1) continue; 
+                st2[0][b][i][j]=max(st2[0][b-1][i][j],st2[0][b-1][i][j+(1<<(b-1))]); 
+            }
+        }
+    }
+    for(int a=1;a<=logMax;a++)
+    {
+        for(int i=n-1;i>=0;i--)
+        {
+            if(i+(1<<(a-1))>n-1) continue; 
+            for(int j=0;j<=m-1;j++)
+            {
+                st2[a][0][i][j]=max(st2[a-1][0][i][j],st2[a-1][0][i+(1<<(a-1))][j]); 
+            }
+        }
+    }
+    for(int i=n-1;i>=0;i--)
+    {
+        for(int j=0;j<=m-1;j++)
+        {
+            for(int a=1;a<=logMax;a++)
+            {
+                if(i+(1<<(a-1))>n-1) continue;  
+                for(int b=1;b<=logMax;b++)
+                { 
+                    if(j+(1<<(b-1))>m-1) break; 
+                    st2[a][b][i][j]=max(st2[a-1][b][i][j],st2[a-1][b][i+(1<<(a-1))][j]); 
+                }
+            }
+        }
+    }
+    return; 
+}
+int cal(int x1,int y1,int x2,int y2)
+{   
+    int l1=logn[x2-x1+1],l2=logn[y2-y1+1]; 
+    int mx=max({st2[l1][l2][x1][y1],st2[l1][l2][x1][y2-(1<<l2)+1],st2[l1][l2][x2-(1<<l1)+1][y1],
+        st2[l1][l2][x2-(1<<l1)+1][y2-(1<<l2)+1]});
+    return mx; 
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<!-- <tabTrigger>hello</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

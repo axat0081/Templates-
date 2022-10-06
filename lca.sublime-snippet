@@ -1,0 +1,59 @@
+<snippet>
+	<content><![CDATA[
+constexpr int nax=2e5+10; 
+vector<int>v[nax]; vector<int>euler; 
+int dep[nax],f[nax],logt[2*nax],dp[2*nax][32];  
+void dfs(int s,int p)
+{
+    if(p==-1) dep[s]=0; 
+    else dep[s]=dep[p]+1; 
+    euler.emplace_back(s);
+    for(auto it: v[s])
+    {
+        if(it!=p)
+        {
+            dfs(it,s);
+            euler.emplace_back(s);  
+        }
+    } 
+}
+void preprocess(int n)
+{
+    if(!euler.empty()) euler.clear(); 
+    dfs(1,-1); 
+    for(int i=1;i<=n;i++) f[i]=-1; 
+    for(int i=0;i<=(int)euler.size()-1;i++)
+    {
+        if(f[euler[i]]==-1) f[euler[i]]=i; 
+    }
+    logt[1]=0;
+    for(int i=2;i<=(int)euler.size();i++) logt[i]=logt[i/2]+1; 
+    for(int i=0;i<=(int)euler.size()-1;i++) 
+        dp[i][0]=euler[i]; 
+    for(int i=(int)euler.size()-1;i>=0;i--)
+    {
+        for(int j=1;j<=30;j++)
+        { 
+            if(i+(1<<(j-1))>=(int)euler.size()) break;  
+            if(dep[dp[i][j-1]]<dep[dp[i+(1<<(j-1))][j-1]])
+            dp[i][j]=dp[i][j-1];
+            else dp[i][j]=dp[i+(1<<(j-1))][j-1]; 
+        }
+    }
+    return; 
+}
+int query(int x,int y)
+{
+    if(x==y) return x; 
+    int l=f[x],r=f[y]; 
+    if(l>r) swap(l,r); 
+    int j=logt[r-l+1]; 
+    if(dep[dp[l][j]]<dep[dp[r-(1<<j)+1][j]]) return dp[l][j]; 
+    else return dp[r-(1<<j)+1][j]; 
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>lca</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

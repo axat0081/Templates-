@@ -1,0 +1,146 @@
+<snippet>
+	<content><![CDATA[
+#include"bits/stdc++.h"
+
+using namespace std;
+#define pb push_back
+#define eb emplace_back
+#define ins insert
+#define all(x) x.begin(),x.end()
+#define rall(x) x.rbegin(),x.rend()
+#define rep(i, a, b) for(int i=a;i<=b;i++)
+#define repr(i, a, b) for(int i=a;i>=b;i--)
+#define lb lower_bound
+#define ub upper_bound
+#ifndef ONLINE_JUDGE
+#define _getchar_nolock getchar_unlocked
+#define pc putchar_unlocked
+#else
+#define pc _putchar_nolock
+#endif
+#define F1 Flusher(); pc(' ');
+#define F2 Flusher(); pc('\n');
+#define sz(x) (int)x.size()
+#define pii pair<int,int>
+#define fir first
+#define sec second
+#define popcount __builtin_popcount
+#pragma GCC target ("avx2")
+#pragma GCC optimization ("O3")
+#pragma GCC optimization ("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+using ll=long long;
+using ld=long double;
+#define mp make_pair
+#define mt make_tuple
+#define bit(x, j) (((ll)x>>j)&1)
+#define um unordered_map
+#define mem(a, val) memset(a,val,sizeof(a))
+
+void __print(int x) { cerr << x; }
+
+void __print(long x) { cerr << x; }
+
+void __print(long long x) { cerr << x; }
+
+void __print(unsigned x) { cerr << x; }
+
+void __print(unsigned long x) { cerr << x; }
+
+void __print(unsigned long long x) { cerr << x; }
+
+void __print(float x) { cerr << x; }
+
+void __print(double x) { cerr << x; }
+
+void __print(ld x) { cerr << x; }
+
+void __print(char x) { cerr << '\'' << x << '\''; }
+
+void __print(const char *x) { cerr << '\"' << x << '\"'; }
+
+void __print(const string &x) { cerr << '\"' << x << '\"'; }
+
+void __print(bool x) { cerr << (x ? "true" : "false"); }
+
+template<typename T, typename V>
+void __print(const pair <T, V> &x) {
+    cerr << '{';
+    __print(x.first);
+    cerr << ',';
+    __print(x.second);
+    cerr << '}';
+}
+
+template<typename T>
+void __print(const T &x) {
+    int f = 0;
+    cerr << '{';
+    for (auto &i: x) cerr << (f++ ? "," : ""), __print(i);
+    cerr << "}";
+}
+
+void _print() { cerr << "]\n"; }
+
+template<typename T, typename... V>
+void _print(T t, V... v) {
+    __print(t);
+    if (sizeof...(v)) cerr << ", ";
+    _print(v...);
+}
+
+template<typename A, typename B, typename C>
+string to_string(tuple <A, B, C> p) {
+    return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";
+}
+
+template<typename A, typename B, typename C, typename D>
+string to_string(tuple <A, B, C, D> p) {
+    return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ", " +
+           to_string(get<3>(p)) + ")";
+}
+
+void debug_out() { cerr << endl; }
+
+template<typename Head, typename... Tail>
+void debug_out(Head H, Tail... T) {
+    cerr << " " << to_string(H);
+    debug_out(T...);
+}
+
+#ifndef ONLINE_JUDGE
+#define debug(x...) cerr << "[" << #x << "] = ["; _print(x)
+#else
+#define debug(x...)
+#endif
+#ifndef ONLINE_JUDGE
+#define debugt(...) cerr << "[" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+#else
+#define debugt(...) 42
+#endif
+void solve()
+{
+
+}
+int main()
+{
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout); 
+    #endif
+    ios_base::sync_with_stdio(false); cin.tie(0); 
+    int t; cin>>t; int c=1; 
+    while(t--)
+    {
+        #ifndef ONLINE_JUDGE
+        cout<<"Tescase- "<<c<<"\n";
+        #endif
+        c++; 
+        solve();  
+    }
+}]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>start</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

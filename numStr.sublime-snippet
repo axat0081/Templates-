@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+string numStr(long long ans)
+{
+	string res=""; 
+	while(ans)
+	{
+	  char c=ans%10+48; res+=string(1,c); 
+	  ans%=10; 
+	}
+	reverse(res.begin(),res.end());
+	return res; 
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>numStr</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

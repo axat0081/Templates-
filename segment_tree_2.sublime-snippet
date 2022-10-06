@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+void modify(int l,int r,int value,int n) // l and r in 0 based indexing 
+{
+  r+=1; 
+  for(l+=n,r+=n;l<r;l>>=1,r>>=1) 
+  {
+    if(l&1) st[l++]+=value;
+    if(r&1) st[--r]+=value;
+  }
+}
+
+long long query(int p,int n) 
+{
+  long long res=0;
+  for (p+=n;p>0;p>>=1) res+=st[p];
+  return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>segment_tree_2</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

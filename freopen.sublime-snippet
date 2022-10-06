@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+#ifndef ONLINE_JUDGE
+if(fopen("input.txt","r"))
+{
+   freopen("input.txt","r",stdin);
+   freopen("output.txt","w",stdout);
+   cerr<<("///////////////////////////////////////////Error Stream//////////////////////////////////////////")<<"\n"; 
+}
+#endif
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>freopen</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
